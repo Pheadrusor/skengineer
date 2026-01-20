@@ -1,0 +1,792 @@
+/* ================================
+   GLOBAL RESET & VARIABLES
+================================ */
+:root {
+  --primary-blue: #0b3c5d;      /* L&T inspired deep blue */
+  --accent-blue: #1f6fa8;
+  --steel-gray: #6b7280;
+  --light-gray: #f5f7fa;
+  --dark-gray: #111827;
+  --white: #ffffff;
+
+  --font-main: 'Inter', sans-serif;
+
+  --max-width: 1200px;
+  --section-padding: 120px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--dark-gray);
+  background-color: var(--white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ================================
+   GLOBAL UTILITIES
+================================ */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  min-height: auto;
+  padding: 80px 0;
+}
+  position: relative;
+}
+
+section:nth-child(even) {
+  background: var(--light-gray);
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--accent-blue);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.section-heading {
+  font-size: 40px;
+  font-weight: 600;
+  color: var(--primary-blue);
+  margin-bottom: 40px;
+  max-width: 700px;
+}
+
+/* =========================================
+   APPLE-STYLE HERO
+========================================= */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+}
+.hero-container {
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.hero-name {
+  font-size: 72px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 18px;
+}
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.contact-link {
+  font-weight: 600;
+}
+
+.hero-role {
+  font-size: 28px;
+  font-weight: 400;
+  color: #6e6e73;   /* Apple gray */
+  margin-bottom: 32px;
+}
+
+.hero-tagline {
+  font-size: 20px;
+  line-height: 1.7;
+  max-width: 720px;
+  color: #1d1d1f;
+  margin-bottom: 48px;
+}
+.hero-logo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 48px;
+}
+
+
+/* =========================================
+   HERO NAV – APPLE STYLE (LIKE CONTACT)
+========================================= */
+.hero-nav {
+  margin-top: 28px;
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.hero-nav a {
+  font-size: 18px;          /* ⬅ bigger text */
+  font-weight: 500;
+  color: #0071e3;           /* ⬅ Apple blue (same as Contact) */
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+.hero-nav a:hover {
+  text-decoration: underline;
+}
+
+
+/* ==================================================
+   HERO RESPONSIVE
+================================================== */
+@media (max-width: 768px) {
+  .hero-name {
+    font-size: 40px;
+  }
+
+  .hero-role {
+    font-size: 18px;
+  }
+
+  .hero-nav {
+    gap: 16px;
+  }
+}
+
+/* ================================
+   LOGO STYLES (SMALL & CLEAN)
+================================ */
+/* ==================================================
+   LOGOS – KEEP ORIGINAL COLORS
+================================================== */
+
+.logo {
+  height: 36px;
+  width: auto;
+  opacity: 1;
+  filter: none;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+
+/* ================================
+   CARD SYSTEM (CORPORATE)
+================================ */
+.card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  transition: all 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* ================================
+   TEXT STYLES
+================================ */
+p {
+  font-size: 16px;
+  color: #374151;
+  margin-bottom: 18px;
+}
+
+strong {
+  color: var(--primary-blue);
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 12px;
+}
+
+li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent-blue);
+  font-size: 18px;
+}
+
+/* ================================
+   BUTTONS & LINKS
+================================ */
+a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  position: relative;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: var(--accent-blue);
+  transition: width 0.3s ease;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+/* ==================================================
+   HERO NAV LINKS – SAME SIZE AS BUTTONS
+================================================== */
+.btn {
+  padding: 14px 28px;
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 999px;
+  background: #0071e3;   /* Apple blue */
+  color: #ffffff;
+}
+
+.btn:hover {
+  background: #0077ed;
+}
+
+.btn-outline {
+  font-weight: 700;   /* makes Contact bold */
+}
+
+  background: transparent;
+  color: #0071e3;
+  border: none;
+}
+
+.hero-nav a:hover {
+  background: var(--primary-blue);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .hero-nav a,
+  .btn {
+    font-size: 15px;
+    padding: 14px 30px;
+  }
+}
+
+
+  disp
+/* ==================================================
+   EXPERIENCE TIMELINE – SAFE VERSION
+================================================== */
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.experience-item {
+  position: relative;   /* NOT absolute */
+}
+
+.experience-item::before {
+  content: none;        /* remove vertical line issue */
+}
+/* =========================================
+   HERO TWO-COLUMN LAYOUT (APPLE STYLE)
+========================================= */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 80px;
+}
+
+/* LEFT TEXT */
+.hero-text {
+  max-width: 640px;
+}
+
+/* RIGHT IMAGE */
+.hero-image img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 24px;
+  object-fit: cover;
+}
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .hero-image {
+    order: -1; /* image on top */
+  }
+
+  .hero-image img {
+    max-width: 280px;
+  }
+}
+#page-loader {
+  position: fixed;
+  inset: 0;
+  background: #0b0b0b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#page-loader span {
+  font-size: 18px;
+  letter-spacing: 4px;
+  color: #ffffff;
+  font-weight: 500;
+  animation: fadePulse 2s ease-in-out infinite;
+}
+
+@keyframes fadePulse {
+  0%   { opacity: 0.3; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+/* ===== PROJECT GALLERY GRID ===== */
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.project-gallery img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+/* Small hover effect */
+.project-gallery img:hover {
+  transform: scale(1.05);
+}
+.project-gallery a {
+  cursor: pointer;
+  display: block;
+}
+.footer-contact a {
+  display: inline-block;
+  margin-top: 5px;
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+/* Footer contact icons styling */
+
+.contact-links a,
+.contact-links span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.contact-links i {
+  color: #25D366;      /* WhatsApp green default */
+  width: 18px;
+}
+
+/* Different colors for different icons */
+.contact-links .fa-envelope {
+  color: #EA4335;      /* Gmail red */
+}
+
+.contact-links .fa-phone {
+  color: #0d6efd;      /* Blue */
+}
+
+.contact-links .fa-file-pdf {
+  color: #d9534f;      /* PDF red */
+}
+
+.contact-links .fa-map-marker-alt {
+  color: #555;
+}
+
+/* Hover effect */
+.contact-links a:hover {
+  opacity: 0.8;
+}
+.get-in-touch {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  background: linear-gradient(90deg, #0d6efd, #25D366);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1px;
+}
+
+/* ===== MOBILE VIEW ONLY ===== */
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .section-heading {
+    font-size: 30px;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .hero-image {
+    order: -1;
+  }
+
+  .hero-name {
+    font-size: 36px;
+  }
+
+  .hero-role {
+    font-size: 18px;
+  }
+
+  .hero-tagline {
+    font-size: 16px;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-nav {
+    justify-content: center;
+  }
+
+  .project-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid,
+  .internship-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-links a,
+  .contact-links span {
+    justify-content: center;
+    display: flex;
+  }
+
+  .get-in-touch {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .hero-name {
+    font-size: 28px;
+  }
+
+  .section-heading {
+    font-size: 24px;
+  }
+
+  .btn {
+    font-size: 14px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+
+/* ===== CUSTOM MOBILE HERO FIX ===== */
+
+@media (max-width: 768px) {
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;   /* keep two column layout */
+    gap: 20px;
+    text-align: left;
+  }
+
+  .hero-text {
+    text-align: left;
+  }
+
+  .hero-image {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .hero-image img {
+    max-width: 160px;   /* make photo smaller on mobile */
+    width: 100%;
+  }
+
+  .hero-name {
+    font-size: 32px;
+  }
+
+  .hero-role {
+    font-size: 16px;
+  }
+
+  .hero-tagline {
+    font-size: 14px;
+  }
+
+  .hero-actions {
+    justify-content: flex-start;
+  }
+
+  .hero-nav {
+    justify-content: flex-start;
+  }
+}
+
+/* ===== FORCE DESKTOP STYLE ON MOBILE ===== */
+
+@media (max-width: 900px) {
+
+  .hero-grid {
+    display: grid !important;
+    grid-template-columns: 1.3fr 0.7fr !important;
+    text-align: left !important;
+    gap: 20px !important;
+  }
+
+  .hero-text {
+    text-align: left !important;
+  }
+
+  .hero-image {
+    order: 0 !important;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .hero-image img {
+    max-width: 150px !important;
+    width: 100%;
+  }
+
+  .hero-name {
+    font-size: 30px;
+  }
+
+  .hero-role {
+    font-size: 16px;
+  }
+
+  .hero-tagline {
+    font-size: 14px;
+  }
+
+  .hero-actions {
+    justify-content: flex-start !important;
+  }
+
+  .hero-nav {
+    justify-content: flex-start !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-nav {
+    flex-wrap: nowrap !important;
+    gap: 12px;
+  }
+
+  .hero-nav a {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .hero {
+    background: linear-gradient(
+      to bottom,
+      #ffffff 40%,
+      #f0f6fb 100%
+    );
+  }
+}
+/* ===== MOBILE TEXT READABILITY IMPROVEMENTS ===== */
+
+@media (max-width: 768px) {
+
+  /* Reduce general paragraph spacing */
+  p {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  /* Reduce gaps in lists */
+  li {
+    margin-bottom: 6px;
+    padding-left: 18px;
+  }
+
+  /* Make headings more compact */
+  .section-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    margin-bottom: 10px;
+  }
+
+  /* Reduce extra padding inside cards */
+  .card {
+    padding: 20px;
+  }
+
+  /* Tighter spacing between elements */
+  section {
+    padding: 40px 0;
+  }
+
+  /* Make experience and education text tighter */
+  .experience-content p,
+  .education-card p {
+    margin-bottom: 8px;
+  }
+
+  /* Reduce large vertical gaps */
+  .experience-timeline {
+    gap: 20px;
+  }
+
+  /* Internship and skills sections */
+  .internship-card,
+  .skill-card {
+    padding: 20px;
+  }
+}
+
+/* ===== SKYSCRAPER IMAGE ONLY FOR MOBILE ===== */
+
+@media (max-width: 768px) {
+
+  .mobile-sky {
+    background-image: url("../assets/images/sky-bg.png");
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+
+  /* Add slight overlay so text stays readable */
+  .mobile-sky::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.75);
+    z-index: 0;
+  }
+
+  .mobile-sky .footer-container {
+    position: relative;
+    z-index: 1;
+  }
+}
+/* ===== REALISTIC SKYSCRAPER EFFECT FOR MOBILE ===== */
+
+@media (max-width: 768px) {
+
+  .mobile-sky {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mobile-sky::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+      linear-gradient(
+        to top,
+        rgba(255,255,255,0.96) 10%,
+        rgba(255,255,255,0.88) 40%,
+        rgba(255,255,255,0.60) 100%
+      ),
+      url("../assets/images/sky-bg.jpg");
+
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+
+    filter: blur(2px) brightness(0.95);
+
+    z-index: 0;
+  }
+
+  .mobile-sky .footer-container {
+    position: relative;
+    z-index: 1;
+  }
+}
+
